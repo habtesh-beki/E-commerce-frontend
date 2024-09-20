@@ -1,0 +1,62 @@
+shoes = [
+{
+    "brand":"nike",
+    "price":5000,
+    "image":"./images/nike_1.jfif"
+},
+{
+    "brand":"nike",
+    "price":4000,
+    "image":"./images/nike_2.jfif"
+},
+{
+    "brand":"nike",
+    "price":6000,
+    "image":"./images/nike_3.jfif"
+}
+{
+    "brand":"nike",
+    "price":7000,
+    "image":"./images/nike_4.jfif"
+}
+{
+    "brand":"nike",
+    "price":3400,
+    "image":"./images/nike_5.jfif"
+}
+{
+    "brand":"nike",
+    "price":6900,
+    "image":"./images/nike_6.jfif"
+}
+{
+    "brand":"nike",
+    "price":4900,
+    "image":"./images/nike_7.jfif"
+}
+{
+    "brand":"adidas",
+    "price":5000,
+    "image":"./images/adidas_1.jfif"
+}
+{
+    "brand":"adidas",
+    "price":6000,
+    "image":"./images/adidas_2.jfif"
+}
+{
+    "brand":"adidas",
+    "price":5000,
+    "image":"./images/adidas_3.jfif"
+}
+{
+    "brand":"adidas",
+    "price":9000,
+    "image":"./images/adidas_4.jfif"
+}
+{
+    "brand":"jordan",
+    "price":5000,
+    "image":"./images/forda_1"
+}
+]
