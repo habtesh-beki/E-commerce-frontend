@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from "react";
 
 const shoes = [
@@ -57,6 +58,33 @@ const shoes = [
         "image":"./images/puma_3.jfif"
     }
 ]
+
+Collection.propTypes = {
+    onAddToCart: PropTypes.arrayOf(
+      PropTypes.shape({
+        brand: PropTypes.string, 
+        price: PropTypes.number,
+        image: PropTypes.string,
+      })
+    )
+  };
+List.propTypes = {
+    onAddToCart: PropTypes.arrayOf(
+      PropTypes.shape({
+        brand: PropTypes.string, 
+        price: PropTypes.number,
+        image: PropTypes.string,
+      })
+    ),
+  shoe:PropTypes.arrayOf(
+        PropTypes.shape({
+          brand: PropTypes.string, 
+          price: PropTypes.number,
+          image: PropTypes.string,
+        })
+      )
+  };
+
 
 export default function Collection({onAddToCart}){
     const [filteredItems, setFilteredItems] = useState(shoes);

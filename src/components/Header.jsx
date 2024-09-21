@@ -1,5 +1,15 @@
-// import { useState } from "react";
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+Header.propTypes = {
+  addToCart: PropTypes.arrayOf(
+    PropTypes.shape({
+      brand: PropTypes.string, 
+      price: PropTypes.number,
+      image: PropTypes.string,
+    })
+  )
+};
 
 export default function Header({addToCart}){
 
