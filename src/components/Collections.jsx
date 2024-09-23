@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from "react";
+import { useAuth } from './AuthProvider';
 
 const shoes = [
     {
@@ -87,6 +88,7 @@ List.propTypes = {
 
 
 export default function Collection({onAddToCart}){
+    const user = useAuth()
     const [filteredItems, setFilteredItems] = useState(shoes);
     const [selectedOption, setSelectedOption] = useState('');
 
@@ -131,7 +133,7 @@ export default function Collection({onAddToCart}){
                     <option value="jordan" >Jordan</option>
                 </select>
             </div>
-            <div className="grid grid-cols-4 w-2/3  mx-auto mt-10 mb-10"> {displayedShoes.map(shoe => <List shoe = {shoe} onAddToCart = {onAddToCart} key={shoe.image}/>)} </div> 
+            <div className="grid grid-cols-4 w-2/3  mx-auto mt-10 mb-10"> {displayedShoes.map(shoe => <List shoe = {shoe} user = {user} onAddToCart = {onAddToCart} key={shoe.image}/>)} </div> 
             <div className="mb-6">
            <button className="block mx-auto font-bold text-xl border p-2 rounded-lg" onClick={handleMore}>{isOpen ? 'show less' : 'show more ...'} </button>
         </div>
@@ -140,7 +142,20 @@ export default function Collection({onAddToCart}){
     )
 }
 
-function List({shoe , onAddToCart}){
+function List({shoe,user , onAddToCart}){
+  
+  const [errorMessage, setErrorMessage] = useState(""); 
+
+   const handleAddToCart = () => {
+    if (user.user !== null) {
+      onAddToCart(shoe);
+      setErrorMessage(""); 
+      console.log(user)
+    } else {
+      setErrorMessage("Please login or signup first!");
+    }
+  };
+  
     return (
       <div className={`border`}>
         <img className="w-60 h-60" src={shoe.image} alt={shoe.brand}/>
@@ -148,7 +163,11 @@ function List({shoe , onAddToCart}){
             <span className="">{shoe.brand}</span>
             <span className="">{shoe.price} birr</span> 
         </div>
-        <button className="bg-color_btn p-2" onClick={() => onAddToCart(shoe)}>ADD TO CART</button>
+        <div>
+            <button className="bg-color_btn p-2" onClick={handleAddToCart}>ADD TO CART</button>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        </div>
+      
       </div>
     )
 }

@@ -1,5 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import {useState, useEffect} from 'react'
+import { BrowserRouter as Router, Route, Routes , useNavigate} from 'react-router-dom';
 
+
+import { AuthProvider , useAuth } from './components/AuthProvider';
 import BestClassical from './components/BestClassical'
 import Collection from './components/Collections'
 import Copy from './components/CopyWrite'
@@ -11,7 +14,10 @@ import {Signup} from './pages/Signup'
 import AddToCart from './pages/AddToCart';
 import { useState } from 'react';
 
+//////////////////////////////
 
+
+//////////////////////////
 
 function App() {
   const [addToCart , setAddToCart] = useState([])
@@ -20,11 +26,12 @@ function App() {
   if(!addToCart) return ;
   setAddToCart([...addToCart , shoe])
  }
-console.log(addToCart)
+// console.log(addToCart)
   return (
-    <Router>
+    <AuthProvider>
+       <Router>
       <div className='font-inria'>
-        <Header addToCart = {addToCart}/>
+         <Header addToCart = {addToCart}/>
         <Routes>
           <Route path="/" element={
             <>
@@ -42,6 +49,8 @@ console.log(addToCart)
         
       </div>
     </Router>
+    </AuthProvider>
+   
   );
 }
 
