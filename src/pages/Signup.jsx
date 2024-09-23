@@ -25,7 +25,7 @@ export function Signup(){
     e.preventDefault();
     
     try {
-      const response = await fetch('http://127.0.0.1:3000/api/users/signup', {
+      const response = await fetch('https://e-commerce-backend-iota-vert.vercel.app/api/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export function Signup(){
               <input className="mb-3 h-10 outline-0"  
                type="text" 
                name="name" 
-               value={formData.username} 
+               value={formData.name} 
                onChange={handleChange} />
               <label>Email</label>
               <input className="mb-3 h-10 outline-0"  
@@ -74,7 +74,7 @@ export function Signup(){
               name="password" 
               value={formData.password} 
               onChange={handleChange} />
-              <label>Confirem Password</label>
+              <label>Confirm Password</label>
               <input className="mb-3 h-10 outline-0"  
               type="password" 
               name="confirmPassword" 

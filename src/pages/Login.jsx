@@ -24,7 +24,7 @@ export default function Login(){
      e.preventDefault();
 
     try {
-      const response = await fetch('http://127.0.0.1:3000/api/users/login', {
+      const response = await fetch('https://e-commerce-backend-iota-vert.vercel.app/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
