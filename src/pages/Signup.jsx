@@ -25,7 +25,7 @@ export function Signup(){
     e.preventDefault();
     
     try {
-      const response = await fetch('https://e-commerce-backend-iota-vert.vercel.app/api/users/signup', {
+      const response = await fetch('https://e-commerce-backend-blue.vercel.app/api/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
